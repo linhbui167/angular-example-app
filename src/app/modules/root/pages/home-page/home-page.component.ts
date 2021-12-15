@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../../../hero/shared/hero.model';
 import { Observable } from 'rxjs';
-import { HeroService } from '../../../hero/shared/hero.service';
+import { Article } from '../../../article/shared/article.model';
+import { ArticleService } from '../../../article/shared/article.service';
 import { EventsService, EventsTypes } from '../../../core/services/events.servide';
 
 @Component({
@@ -11,10 +11,9 @@ import { EventsService, EventsTypes } from '../../../core/services/events.servid
 })
 
 export class HomePageComponent implements OnInit {
-  heroes$: Observable<Hero[]> | undefined;
-
-  constructor(private heroService: HeroService,
-              private eventsService: EventsService) {
+  articles: Array<Article>;
+  constructor(private articleService: ArticleService) {
+    this.articles = []
     // @ts-ignore
     if (window.Cypress) {
       // @ts-ignore
@@ -23,12 +22,16 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.heroes$ = this.heroService.searchHeroes({ fetchPolicy: 'no-cache' });
-
-    this.eventsService.events$.subscribe((event) => {
-      if (event.type === EventsTypes.UPDATE_HEROES) {
-        this.heroes$ = this.heroService.searchHeroes({ fetchPolicy: 'no-cache' });
-      }
+    this.articleService.fetchArticles({ pageNumber: 1 }).subscribe((articles: Article[]) => {
+      this.articles = articles
+      console.log(this.articles)
     })
+
+
+    // this.eventsService.events$.subscribe((event) => {
+    //   if (event.type === EventsTypes.UPDATE_HEROES) {
+    //     this.heroes$ = this.heroService.searchHeroes({ fetchPolicy: 'no-cache' });
+    //   }
+    // })
   }
 }
