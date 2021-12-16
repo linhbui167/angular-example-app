@@ -12,6 +12,7 @@ import { CapitalizeFirstPipe } from './pipes/capitalize-first.pipe';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { HeroLoadingComponent } from './components/hero-loading/hero-loading.component';
 import { HeroCardComponent } from './components/hero-card/hero-card.component';
+import { ArticleCardComponent } from './components/article-card/article-card.component';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { HeroCardComponent } from './components/hero-card/hero-card.component';
     CapitalizeFirstPipe,
     HeroLoadingComponent,
     HeroCardComponent,
+    ArticleCardComponent,
   ],
   exports: [
     CommonModule,
@@ -43,6 +45,7 @@ import { HeroCardComponent } from './components/hero-card/hero-card.component';
     LazyLoadImageModule,
     HeroLoadingComponent,
     HeroCardComponent,
+    ArticleCardComponent,
   ]
 })
 

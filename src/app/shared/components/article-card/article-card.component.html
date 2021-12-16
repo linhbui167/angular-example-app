@@ -1,5 +1,8 @@
 
-<a class="article-card" [href]="article.url" *ngIf="article" [@fadeIn]="'fadeIn'">
+<a class="article-card" [routerLink]="[routesConfig.routes.article.detail(article.url)]" *ngIf="article" [@fadeIn]="'fadeIn'">
+  <div class="article-card__increment" *ngIf="incrementId">
+    {{ incrementId }}
+  </div>
   <div class="article-card__bg">
     <img [src]="article.coverImageUrl || 'https://via.placeholder.com/350x250'" alt="" />
   </div>

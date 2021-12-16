@@ -3,7 +3,7 @@ import { Deserializable } from '../../../shared/interfaces/deserializable.interf
 export class Article implements Deserializable {
   url: string;
   title: string;
-  subtile: string;
+  subtitle: string;
   content: string;
   description: string;
   coverImageUrl: string;
@@ -11,7 +11,7 @@ export class Article implements Deserializable {
 
   constructor(article: any = {}) {
     this.url = article.url || ''
-    this.subtile = article.subtile || ''
+    this.subtitle = article.subtitle || ''
     this.title = article.title || ''
     this.content = article.content || ''
     this.description = article.description  || ''

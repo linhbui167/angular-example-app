@@ -1,9 +1,25 @@
 .article-card {
   position: relative;
   display: flex;
-  border: 1px solid #000;
+  border: 1px solid #e2e2e2;
   overflow: hidden;
   border-radius: 5px;
+  &__increment {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 5px;
+    left: 5px;
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+    color: #000;
+    font-weight: bold;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 1;
+  }
   &__bg {
     position: relative;
     width: 100%;
@@ -50,6 +66,10 @@
     text-overflow: ellipsis;
     width: 100%;
     overflow: hidden;
+  }
+  &__subtitle {
+    color: #fbb432;
+    font-weight: 500;
   }
   &:hover {
     .article-card__content {
