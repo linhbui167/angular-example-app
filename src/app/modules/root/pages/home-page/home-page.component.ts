@@ -7,31 +7,38 @@ import { EventsService, EventsTypes } from '../../../core/services/events.servid
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  styleUrls: ['./home-page.component.scss'],
 })
-
 export class HomePageComponent implements OnInit {
   articles: Array<Article>;
+  pageNumber: number;
+  isLoading: Boolean;
+  placeHolderList: Array<String>;
   constructor(private articleService: ArticleService) {
-    this.articles = []
+    this.articles = [];
+    this.placeHolderList = new Array(4).fill('');
+    this.pageNumber = 1;
+    this.isLoading = false;
     // @ts-ignore
     if (window.Cypress) {
       // @ts-ignore
-      window.HomePageComponent = this
+      window.HomePageComponent = this;
     }
   }
 
   ngOnInit() {
-    this.articleService.fetchArticles({ pageNumber: 1 }).subscribe((articles: Article[]) => {
-      this.articles = articles
-      console.log(this.articles)
-    })
+    this.fetchArticle();
+  }
 
-
-    // this.eventsService.events$.subscribe((event) => {
-    //   if (event.type === EventsTypes.UPDATE_HEROES) {
-    //     this.heroes$ = this.heroService.searchHeroes({ fetchPolicy: 'no-cache' });
-    //   }
-    // })
+  fetchArticle() {
+    if (this.isLoading) return;
+    this.isLoading = true;
+    this.articleService
+      .fetchArticles({ pageNumber: this.pageNumber })
+      .subscribe((articles: Article[]) => {
+        this.articles = articles;
+        this.isLoading = false;
+        this.pageNumber = this.pageNumber++;
+      });
   }
 }
