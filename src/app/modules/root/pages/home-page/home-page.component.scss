@@ -1,3 +1,11 @@
-mat-card-title, mat-card-subtitle, .mat-card-image {
+mat-card-title,
+mat-card-subtitle,
+.mat-card-image {
   cursor: pointer;
+}
+
+#article-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 15px;
 }
