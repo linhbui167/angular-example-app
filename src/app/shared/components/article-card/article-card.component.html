@@ -1,1 +1,14 @@
 
+<a class="article-card" [href]="article.url" *ngIf="article" [@fadeIn]="'fadeIn'">
+  <div class="article-card__bg">
+    <img [src]="article.coverImageUrl || 'https://via.placeholder.com/350x250'" alt="" />
+  </div>
+  <div class="article-card__content">
+    <div class="article-card__title">
+      {{ article.title }}
+    </div>
+    <div class="article-card__subtitle">
+      {{ article.subtitle }}
+    </div>
+  </div>
+</a>
