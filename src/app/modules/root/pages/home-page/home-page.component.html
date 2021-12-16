@@ -1,13 +1,17 @@
 <div fxLayout="row">
-  <div fxFlex="10" fxFlex.gt-sm="20"></div>
-  <div fxFlex="90" fxFlex.gt-sm="80">
-    <h1 class="header__title" i18n>Heroes published</h1>
-    <div id="heroes-list" *ngIf="articles">
-      <ng-container *ngFor="let article of articles">
-        <div>{{ article.title }}</div>
-        <!-- <app-hero-card [hero]="hero"></app-hero-card> -->
-      </ng-container>
+  <div fxFlex="10" fxFlex.gt-sm="5"></div>
+  <div fxFlex="90" fxFlex.gt-sm="90">
+    <div id="article-list" *ngIf="!isLoading; else loadingBlock">
+      <app-article-card *ngFor="let article of articles" [article]="article"></app-article-card>
     </div>
+    <ng-template #loadingBlock>
+      <div id="article-list">
+        <app-loading-placeholder
+          *ngFor="let placeholder of placeHolderList"
+          [height]="'150px'"
+        ></app-loading-placeholder>
+      </div>
+    </ng-template>
   </div>
-  <div fxFlex="10" fxFlex.gt-sm="20"></div>
+  <div fxFlex="10" fxFlex.gt-sm="5"></div>
 </div>
