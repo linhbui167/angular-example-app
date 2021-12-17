@@ -13,17 +13,14 @@ export class HomePageComponent implements OnInit {
   articles: Array<Article>;
   pageNumber: number;
   isLoading: Boolean;
+  isGridView: Boolean;
   placeHolderList: Array<String>;
   constructor(private articleService: ArticleService) {
     this.articles = [];
     this.placeHolderList = new Array(4).fill('');
     this.pageNumber = 1;
+    this.isGridView = true;
     this.isLoading = false;
-    // @ts-ignore
-    if (window.Cypress) {
-      // @ts-ignore
-      window.HomePageComponent = this;
-    }
   }
 
   ngOnInit() {
@@ -36,9 +33,18 @@ export class HomePageComponent implements OnInit {
     this.articleService
       .fetchArticles({ pageNumber: this.pageNumber })
       .subscribe((articles: Article[]) => {
-        this.articles = articles;
+        this.articles = this.articles.concat(articles);
         this.isLoading = false;
-        this.pageNumber = this.pageNumber++;
+        this.pageNumber = this.pageNumber + 1;
+        console.log(this.pageNumber);
       });
+  }
+
+  switchView() {
+    this.isGridView = !this.isGridView;
+  }
+
+  onScrollingFinished() {
+    this.fetchArticle();
   }
 }
