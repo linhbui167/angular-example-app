@@ -1,5 +1,10 @@
-
-<a class="article-card" [routerLink]="[routesConfig.routes.article.detail(article.url)]" *ngIf="article" [@fadeIn]="'fadeIn'">
+<a
+  class="article-card"
+  [class]="isGridView ? 'is-grid' : 'is-row'"
+  [routerLink]="[routesConfig.routes.article.detail(article.url)]"
+  *ngIf="article"
+  [@fadeIn]="'fadeIn'"
+>
   <div class="article-card__increment" *ngIf="incrementId">
     {{ incrementId }}
   </div>
@@ -12,6 +17,9 @@
     </div>
     <div class="article-card__subtitle">
       {{ article.subtitle }}
+    </div>
+    <div *ngIf="!isGridView" class="article-card__description">
+      {{ article.description }}
     </div>
   </div>
 </a>
