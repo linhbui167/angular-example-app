@@ -1,3 +1,5 @@
+@import '../../../../styles/grid';
+
 mat-card-title,
 mat-card-subtitle,
 .mat-card-image {
@@ -8,4 +10,34 @@ mat-card-subtitle,
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 15px;
+  &.is-row {
+    grid-template-columns: 1fr;
+  }
+  &.is-grid {
+    @media screen and (max-width: $bp-lg) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media screen and (max-width: $bp-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.page-home {
+  padding: 0 15px;
+}
+
+.grid-control {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+.view-type {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  @media screen and (max-width: $bp-sm) {
+    display: none;
+  }
 }
