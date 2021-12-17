@@ -1,6 +1,8 @@
-@import "mixins";
+@import 'mixins';
+@import 'grid';
+@import 'typo';
 
-snack-bar-container {
+.snack-bar-container {
   background: $primary--color !important;
 }
 
@@ -8,7 +10,8 @@ snack-bar-container {
   background: $primary--color;
 }
 
-.mat-menu-item, .mat-menu-item .mat-icon {
+.mat-menu-item,
+.mat-menu-item .mat-icon {
   color: $secondary--color;
   font-weight: 100;
 }
