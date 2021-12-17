@@ -1,4 +1,4 @@
-@import "../../../../styles/mixins";
+@import '../../../../styles/mixins';
 
 :host(app-header) {
   padding-top: 0;
@@ -92,16 +92,13 @@
 
 @media (max-width: 680px) {
   :host(app-header) {
-    padding-top: 0;
     padding-bottom: 1rem;
 
     header {
       position: relative;
 
       nav {
-        height: 7rem;
         display: flex;
-        padding: 1rem 2rem 0;
 
         > div {
           margin-top: 1rem;
@@ -117,8 +114,6 @@
 
 @media (max-width: 425px) {
   :host(app-header) {
-    padding-bottom: 0;
-
     header {
       nav {
         app-search-bar {
