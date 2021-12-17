@@ -13,6 +13,8 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { HeroLoadingComponent } from './components/hero-loading/hero-loading.component';
 import { HeroCardComponent } from './components/hero-card/hero-card.component';
 import { ArticleCardComponent } from './components/article-card/article-card.component';
+import { InfiniteScrollComponent } from './components/infinite-scroll/infinite-scroll.component';
+import { BackToTopComponent } from './components/back-to-top/back-to-top.component';
 
 @NgModule({
   imports: [
@@ -23,7 +25,7 @@ import { ArticleCardComponent } from './components/article-card/article-card.com
     RouterModule,
     NgxExampleLibraryModule,
     NgxScrollToFirstInvalidModule,
-    LazyLoadImageModule
+    LazyLoadImageModule,
   ],
   declarations: [
     SpinnerComponent,
@@ -32,6 +34,8 @@ import { ArticleCardComponent } from './components/article-card/article-card.com
     HeroLoadingComponent,
     HeroCardComponent,
     ArticleCardComponent,
+    InfiniteScrollComponent,
+    BackToTopComponent,
   ],
   exports: [
     CommonModule,
@@ -46,8 +50,8 @@ import { ArticleCardComponent } from './components/article-card/article-card.com
     HeroLoadingComponent,
     HeroCardComponent,
     ArticleCardComponent,
-  ]
+    InfiniteScrollComponent,
+    BackToTopComponent,
+  ],
 })
-
-export class SharedModule {
-}
+export class SharedModule {}
