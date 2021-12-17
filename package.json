@@ -24,7 +24,8 @@
   },
   "private": true,
   "engines": {
-    "node": ">=14"
+    "node": "16.13.1",
+    "npm": "8.1.2"
   },
   "lint-staged": {
     "*.{js,css,md}": "prettier --write"
