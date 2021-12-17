@@ -1,8 +1,19 @@
-<div class="article-detail">
-  <div class="article-detail__cover">
-    <img [src]="article.coverImageUrl" alt="">
+<div *ngIf="article" class="article-detail container">
+  <div class="article-detail__header">
+    <h1 class="article-detail__title">{{ article.title }}</h1>
+    <div class="article-detail__description">
+      {{ article.description }}
+    </div>
+    <a [href]="article.url" target="_blank" class="article-detail__origin">
+      <span style="padding-right: 5px">View in Original Post</span> <mat-icon>exit_to_app</mat-icon>
+    </a>
+    <div class="article-detail__cover">
+      <img [src]="article.coverImageUrl" alt="" />
+    </div>
   </div>
-  <div class="article-detail__content" [innerHTML]="article.content">
-    
+  <div class="article-detail__content" [innerHTML]="article.content"></div>
+  <div class="article-detail__footer">
+    <span>Previous Post</span>
+    <span>Next Post</span>
   </div>
 </div>
