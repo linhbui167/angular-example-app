@@ -1,17 +1,33 @@
-<div fxLayout="row">
-  <div fxFlex="10" fxFlex.gt-sm="5"></div>
-  <div fxFlex="90" fxFlex.gt-sm="90">
-    <div id="article-list" *ngIf="!isLoading; else loadingBlock">
-      <app-article-card *ngFor="let article of articles; let i = index" [article]="article" [incrementId]="i + 1"></app-article-card>
+<div class="home-page container" [class]="isGridView ? 'is-fluid' : ''">
+  <div class="grid-control">
+    <div class="view-type" (click)="switchView()">
+      <span style="padding-right: 5px; font-size: 12px">View as</span>
+      <mat-icon *ngIf="isGridView">grid_on</mat-icon>
+      <mat-icon *ngIf="!isGridView">list</mat-icon>
     </div>
-    <ng-template #loadingBlock>
-      <div id="article-list">
-        <app-loading-placeholder
-          *ngFor="let placeholder of placeHolderList"
-          [height]="'150px'"
-        ></app-loading-placeholder>
-      </div>
-    </ng-template>
   </div>
-  <div fxFlex="10" fxFlex.gt-sm="5"></div>
+  <div class="grid-container">
+    <app-infinite-scroll (scrolled)="onScrollingFinished()">
+      <div
+        id="article-list"
+        [class]="isGridView ? 'is-grid' : 'is-row'"
+        appScrollTracker
+        (scrollingFinished)="onScrollingFinished()"
+      >
+        <app-article-card
+          *ngFor="let article of articles; let i = index"
+          [article]="article"
+          [isGridView]="isGridView"
+          [incrementId]="i + 1"
+        ></app-article-card>
+
+        <ng-template [ngIf]="isLoading">
+          <app-loading-placeholder
+            *ngFor="let placeholder of placeHolderList"
+            [height]="'150px'"
+          ></app-loading-placeholder>
+        </ng-template>
+      </div>
+    </app-infinite-scroll>
+  </div>
 </div>
