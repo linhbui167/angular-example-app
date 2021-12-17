@@ -6,17 +6,16 @@ import { Apollo, gql } from 'apollo-angular';
 import { WatchQueryFetchPolicy } from '@apollo/client/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ArticleService {
-  constructor(private apollo: Apollo) {
-  }
+  constructor(private apollo: Apollo) {}
 
-  fetchArticles( payload: { pageNumber: any; } ): Observable<Article[]> {
-    const { pageNumber } = payload
+  fetchArticles(payload: { pageNumber: any }): Observable<Article[]> {
+    const { pageNumber } = payload;
     return this.apollo
       .watchQuery({
-        query: gql `
+        query: gql`
           {
             articles(pageNumber:${pageNumber || 1}) {
               url,
@@ -27,22 +26,24 @@ export class ArticleService {
               coverImageUrl,
             }
           }
-        ` ,
-        fetchPolicy: 'no-cache'
+        `,
+        fetchPolicy: 'no-cache',
       })
-      .valueChanges.pipe(map((result: any) => {
-        return result.data.articles.map((item: any) => {
-          return new Article(item)
+      .valueChanges.pipe(
+        map((result: any) => {
+          console.log(result);
+          return result.data.articles.map((item: any) => {
+            return new Article(item);
+          });
         })
-      }))
+      );
   }
 
   fetchArticleDetail(articleUrlEncoded: string) {
-    const articleUrl = atob(articleUrlEncoded)
-    console.log(articleUrl)
+    const articleUrl = atob(articleUrlEncoded);
     return this.apollo
       .watchQuery({
-        query: gql `
+        query: gql`
           {
             article(url:"${articleUrl}") {
               url,
@@ -53,12 +54,13 @@ export class ArticleService {
               coverImageUrl,
             }
           }
-        ` ,
-        fetchPolicy: 'no-cache'
+        `,
+        fetchPolicy: 'no-cache',
       })
-      .valueChanges.pipe(map((result: any) => {
-        return new Article(result.data.article)
-      }))
+      .valueChanges.pipe(
+        map((result: any) => {
+          return new Article(result.data.article);
+        })
+      );
   }
-
 }
