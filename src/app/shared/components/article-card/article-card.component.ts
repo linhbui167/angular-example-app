@@ -22,6 +22,7 @@ import { ROUTES_CONFIG, RoutesConfig } from '../../../configs/routes.config';
 export class ArticleCardComponent {
   @Input() incrementId: number | undefined;
   @Input() article: Article | undefined;
+  @Input() isGridView: Boolean = true;
 
   constructor(@Inject(ROUTES_CONFIG) public routesConfig: any) {}
 }
