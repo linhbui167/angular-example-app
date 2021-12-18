@@ -2,27 +2,24 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArticleDetailPageComponent } from './pages/article-detail-page.component';
 import { RoutesConfig } from '../../configs/routes.config';
-import { AuthGuard } from '../auth/auth.guard';
 
-const heroRoutes = RoutesConfig.routesNames.hero;
+const articleRoutes = RoutesConfig.routesNames.article;
 
-const heroesRoutes: Routes = [
+const routeList: Routes = [
   {
-    path: heroRoutes.detail,
+    path: articleRoutes.detail,
     component: ArticleDetailPageComponent,
   }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forChild(heroesRoutes)
+    RouterModule.forChild(routeList)
   ],
   exports: [
     RouterModule
   ],
-  providers: [
-    AuthGuard
-  ]
+
 })
 
 export class ArticleRoutingModule {

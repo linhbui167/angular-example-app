@@ -45,13 +45,6 @@ export class AppComponent implements OnInit {
               content: 'Home meta description'
             });
             break;
-          case '/' + RoutesConfig.routesNames.hero.basePath:
-            this.title.setTitle('Heroes list');
-            this.meta.updateTag({
-              name: 'description',
-              content: 'Heroes meta description'
-            });
-            break;
         }
       }
     });

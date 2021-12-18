@@ -1,16 +1,12 @@
 import { NgModule } from '@angular/core';
 import { MaterialModule } from './modules/material.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { CommonModule } from '@angular/common';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { NgxExampleLibraryModule } from '@ismaestro/ngx-example-library';
 import { LoadingPlaceholderComponent } from './components/loading-placeholder/loading-placeholder.component';
 import { CapitalizeFirstPipe } from './pipes/capitalize-first.pipe';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
-import { HeroLoadingComponent } from './components/hero-loading/hero-loading.component';
-import { HeroCardComponent } from './components/hero-card/hero-card.component';
 import { ArticleCardComponent } from './components/article-card/article-card.component';
 import { InfiniteScrollComponent } from './components/infinite-scroll/infinite-scroll.component';
 import { BackToTopComponent } from './components/back-to-top/back-to-top.component';
@@ -19,18 +15,14 @@ import { BackToTopComponent } from './components/back-to-top/back-to-top.compone
   imports: [
     CommonModule,
     MaterialModule,
-    FlexLayoutModule,
     ReactiveFormsModule,
     RouterModule,
-    NgxExampleLibraryModule,
     LazyLoadImageModule,
   ],
   declarations: [
     SpinnerComponent,
     LoadingPlaceholderComponent,
     CapitalizeFirstPipe,
-    HeroLoadingComponent,
-    HeroCardComponent,
     ArticleCardComponent,
     InfiniteScrollComponent,
     BackToTopComponent,
@@ -38,14 +30,10 @@ import { BackToTopComponent } from './components/back-to-top/back-to-top.compone
   exports: [
     CommonModule,
     MaterialModule,
-    FlexLayoutModule,
-    NgxExampleLibraryModule,
     SpinnerComponent,
     LoadingPlaceholderComponent,
     CapitalizeFirstPipe,
     LazyLoadImageModule,
-    HeroLoadingComponent,
-    HeroCardComponent,
     ArticleCardComponent,
     InfiniteScrollComponent,
     BackToTopComponent,
