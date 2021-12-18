@@ -1,7 +1,7 @@
-<div class="home-page container" [class]="isGridView ? 'is-fluid' : ''">
+<div class="home-page container">
   <div class="grid-control">
     <div class="view-type" (click)="switchView()">
-      <span style="padding-right: 5px; font-size: 12px">View as</span>
+      <span style="padding-right: 5px; font-size: 12px">Current view</span>
       <mat-icon *ngIf="isGridView">grid_on</mat-icon>
       <mat-icon *ngIf="!isGridView">list</mat-icon>
     </div>

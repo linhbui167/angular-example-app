@@ -1,6 +1,15 @@
 <header>
+  <div class="logo" [routerLink]="routesConfig.routes.home">
+    <img src="./assets/images/logo.jpeg" alt="">
+  </div>
   <nav class="main-menu">
-    <a [routerLink]="routesConfig.routes.home" [routerLinkActive]="['is-active']"> Best </a>
-    <a [routerLinkActive]="['is-active']"> Other </a>
+    <a class="menu-item"> New </a>
+    <a class="menu-item" [routerLink]="routesConfig.routes.home" [routerLinkActive]="['is-active']"> Best </a>
+    <a class="menu-item"> Past </a>
+    <a class="menu-item"> Comments </a>
+    <a class="menu-item"> Ask </a>
+    <div class="login-act">
+      <a href="/login" > Login</a>
+    </div>
   </nav>
 </header>

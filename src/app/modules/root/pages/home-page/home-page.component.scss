@@ -11,9 +11,16 @@ mat-card-subtitle,
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 15px;
   &.is-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 80px;
+    row-gap: 30px;
+    @media screen and (max-width: $bp-lg) {
+      grid-template-columns: 1fr ;
+    }
   }
   &.is-grid {
+    column-gap: 30px;
+    row-gap: 50px;
     @media screen and (max-width: $bp-lg) {
       grid-template-columns: 1fr 1fr 1fr;
     }

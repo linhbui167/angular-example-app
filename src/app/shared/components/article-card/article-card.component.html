@@ -1,4 +1,4 @@
-<a
+<div
   class="article-card"
   [class]="isGridView ? 'is-grid' : 'is-row'"
   [routerLink]="[routesConfig.routes.article.detail(article.url)]"
@@ -18,8 +18,8 @@
     <div class="article-card__subtitle">
       {{ article.subtitle }}
     </div>
-    <div *ngIf="!isGridView" class="article-card__description">
+    <div *ngIf="article.description " class="article-card__description">
       {{ article.description }}
     </div>
   </div>
-</a>
+</div>
