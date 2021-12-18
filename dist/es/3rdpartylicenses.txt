@@ -116,8 +116,6 @@ SOFTWARE.
 
 @ismaestro/ngx-example-library
 
-@ismaestro/ngx-scroll-to-first-invalid
-
 @sentry/browser
 BSD-3-Clause
 BSD 3-Clause License
