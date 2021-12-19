@@ -3,11 +3,23 @@
     <img src="./assets/images/logo.jpeg" alt="">
   </div>
   <nav class="main-menu">
-    <a class="menu-item"> New </a>
-    <a class="menu-item" [routerLink]="routesConfig.routes.home" [routerLinkActive]="['is-active']"> Best </a>
-    <a class="menu-item"> Past </a>
-    <a class="menu-item"> Comments </a>
-    <a class="menu-item"> Ask </a>
+    <div class="menu-list">
+      <a class="menu-item"> New </a>
+      <a class="menu-item" [routerLink]="routesConfig.routes.home" [routerLinkActive]="['is-active']"> Best </a>
+      <a class="menu-item"> Past </a>
+      <a class="menu-item"> Comments </a>
+      <a class="menu-item"> Ask </a>
+    </div>
+    <div class="menu-list is-mobile">
+      <button mat-button [matMenuTriggerFor]="menu">Select Topic</button>
+      <mat-menu #menu="matMenu" >
+        <a class="menu-item" style="display: block; padding: 4px 10px;"> New </a>
+        <a [routerLink]="routesConfig.routes.home" style="display: block; padding: 4px 10px;">Best</a>
+        <a class="menu-item" style="display: block; padding: 4px 10px;"> Past </a>
+        <a class="menu-item" style="display: block; padding: 4px 10px;"> Comments </a>
+        <a class="menu-item" style="display: block; padding: 4px 10px;"> Ask </a>
+      </mat-menu>
+    </div>
     <div class="login-act">
       <a href="/login" > Login</a>
     </div>

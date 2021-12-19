@@ -1,4 +1,5 @@
 @import '../../../../styles/mixins';
+@import '../../../../styles/grid';
 
 :host(app-header) {
   padding-top: 0;
@@ -13,6 +14,7 @@
       height: auto;
     }
   }
+  
   header {
     position: fixed;
     z-index: 999;
@@ -62,7 +64,18 @@
         align-items: center;
         height: calculateRem(5px);
       }
-
+      .menu-list {
+        display: flex;
+        &.is-mobile {
+          display: none;
+        }
+        @media screen and (max-width: $bp-sm) {
+          display: none;
+          &.is-mobile {
+            display: flex;
+          }
+        }
+      }
       .menu-item {
         display: flex;
         align-items: center;
@@ -155,3 +168,4 @@
     }
   }
 }
+
